@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+import { Box } from './Box/Box';
+import { Title, Subtitle } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -47,16 +49,16 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Box p="20px">
+        <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <Subtitle>Contacts</Subtitle>
         <Filter value={this.state.filter} onChange={this.filterInput} />
         <ContactList
           array={this.visibleContacts()}
           onClick={this.deleteContact}
         />
-      </div>
+      </Box>
     );
   }
 }
